@@ -7,15 +7,16 @@ namespace NevermoreOrganizerAide.ImageProcessing;
 
 public class ImageService
 {
+    private readonly Font _font = SystemFonts.CreateFont("Arial", 48);
+
     public void AddTextToImage()
     {
         var image = Image.Load("image.png");
         const string text = "Регистрация";
-        var font = SystemFonts.CreateFont("Arial", 48);
         var colour = Color.Black;
         var location = new PointF(50, 50);
-    
-        image.Mutate(x => x.DrawText(text, font, colour, location));
+
+        image.Mutate(x => x.DrawText(text, _font, colour, location));
         image.Save("result.png");
     }
 }
