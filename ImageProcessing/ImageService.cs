@@ -23,4 +23,9 @@ public class ImageService(Font font)
         image.SaveAsPng(ms);
         return ms.ToArray();
     }
+
+    public void SaveImage(byte[] image)
+    {
+        File.WriteAllBytes(ResultPath, image);
+    }
 }
