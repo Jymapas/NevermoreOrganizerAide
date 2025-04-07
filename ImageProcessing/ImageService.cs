@@ -7,7 +7,7 @@ namespace NevermoreOrganizerAide.ImageProcessing;
 
 public class ImageService(Font font)
 {
-    private const string ImagePath = "image.png";
+    private const string ImagePath = "image.jpeg";
     private const string ResultPath = "result.png";
     private readonly PointF _position = new(50, 50);
     private readonly Color _strokeColour = Color.Black;
