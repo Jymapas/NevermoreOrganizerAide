@@ -9,10 +9,9 @@ public class ImageService
 {
     private readonly Font _font = SystemFonts.CreateFont("Arial", 48);
 
-    public void AddTextToImage()
+    public void AddTextToImage(string text)
     {
         var image = Image.Load("image.png");
-        const string text = "Регистрация";
         var colour = Color.Black;
         var location = new PointF(50, 50);
 

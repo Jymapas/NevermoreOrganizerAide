@@ -1,4 +1,4 @@
 ﻿using NevermoreOrganizerAide.ImageProcessing;
 
 var imageService = new ImageService();
-imageService.AddTextToImage();
+imageService.AddTextToImage("Приём заявок");
