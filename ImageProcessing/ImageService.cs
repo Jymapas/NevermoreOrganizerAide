@@ -5,17 +5,20 @@ using SixLabors.ImageSharp.Processing;
 
 namespace NevermoreOrganizerAide.ImageProcessing;
 
-public class ImageService
+public class ImageService(Font font)
 {
-    private readonly Font _font = SystemFonts.CreateFont("Arial", 48);
+    private const string ImagePath = "image.png";
+    private const string ResultPath = "result.png";
+    private readonly PointF _position = new(50, 50);
+    private readonly Color _strokeColour = Color.Black;
+    private readonly Color _textColour = Color.White;
+
+    public ImageService() : this(SystemFonts.CreateFont("Arial", 48)) { }
 
     public void AddTextToImage(string text)
     {
-        var image = Image.Load("image.png");
-        var colour = Color.Black;
-        var location = new PointF(50, 50);
-
-        image.Mutate(x => x.DrawText(text, _font, colour, location));
-        image.Save("result.png");
+        var image = Image.Load(ImagePath);
+        image.Mutate(x => x.DrawText(text, font, _textColour, _position));
+        image.Save(ResultPath);
     }
 }
