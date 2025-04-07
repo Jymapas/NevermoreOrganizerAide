@@ -1,1 +1,4 @@
-﻿Console.WriteLine("Hello, World!");
+﻿using NevermoreOrganizerAide.ImageProcessing;
+
+var imageService = new ImageService();
+imageService.AddTextToImage("Приём заявок");
