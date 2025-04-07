@@ -15,10 +15,12 @@ public class ImageService(Font font)
 
     public ImageService() : this(SystemFonts.CreateFont("Arial", 48)) { }
 
-    public void AddTextToImage(string text)
+    public byte[] AddTextToImage(string text)
     {
         var image = Image.Load(ImagePath);
         image.Mutate(x => x.DrawText(text, font, _textColour, _position));
-        image.Save(ResultPath);
+        using var ms = new MemoryStream();
+        image.SaveAsPng(ms);
+        return ms.ToArray();
     }
 }
